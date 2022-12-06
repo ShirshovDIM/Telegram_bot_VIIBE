@@ -6,5 +6,7 @@ I also got introduced with another side (much darker side actually :) ) of Pytho
 
 If you want to try the functionality of this bot, contact me through email (dimensionkernel@gmail.com with email title starting from "[BOT_TG]", otherwise I will not recieve you message because it will be sent to spam folder) or telegram (https://t.me/DIMensionKER)
 
+Keep in mind that this project is currently in progress, so I will be very greatful if you provide me with any informative feedback about bugs and interesting ideas and features to implement.
+
 Sincerely yours,
 ShirshovDIM
