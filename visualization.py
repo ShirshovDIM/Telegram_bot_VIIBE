@@ -38,7 +38,6 @@ def graph(df, df_test, short_window = 30, long_window = 90):
             activ_y = np.append(activ_y, [np.where(df_test.signal[df_test.date == i] == 'buy', 0, 1),
                                           np.where(df_test.signal[df_test.date == i] == 'buy', 1, 0)])
 
-    print(type(activ_x[0]),type(activ_x[-1]) )
     activ_x.extend([df.Date.iloc[-1], df.Date.iloc[-1]])
     activ_y = np.append(activ_y, [0, 0])
     
