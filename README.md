@@ -1,6 +1,6 @@
 # Telegram_bot_VIIBE
 
-This is my first user-friendly project related to strategy simulation of financial data series. I also implemented database using SQL and challenged myself in learning new libraries to find out how fast I will be able to master them
+This is my first (almost-?) user-friendly project related to strategy simulation of financial data series. I also implemented database using SQL and challenged myself in learning new libraries to find out how fast I will be able to master them
 
 I also got introduced with another side (much darker :) ) of Python programming, when I had to build my own class to process users' queries.
 
