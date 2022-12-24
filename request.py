@@ -19,6 +19,7 @@ def get_historical_data(ticker, start = '2000-01-01', stop = datetime.now().strf
 
 
 def get_daily_data(ticker, api_token, operation):
+    
     sim = '1. open' if operation == 'sell' else '4. close'
     try:
         ts = TimeSeries(key = api_token, output_format='pandas')
@@ -29,6 +30,7 @@ def get_daily_data(ticker, api_token, operation):
 
 
 def trader(df,money = 100000,stop_loss = 7, short_window = 30, long_window = 90):
+    
     # initial df fixing
     df.columns = df.columns.map(lambda x: x.capitalize())
     df.index = df.index.map(lambda x: datetime.strftime(x, '%Y-%m-%d'))
@@ -114,11 +116,6 @@ def trader(df,money = 100000,stop_loss = 7, short_window = 30, long_window = 90)
     df_test.index = range(len(df_test)) 
     df_test = df_test[:df_test[df_test.signal.isin(['sale','stop-loss']) & df_test.num_shares > 0].index[-1] + 1]
     
-    # print('Итоговая стоимость после последней продажи: ' + str(df_test.cash.iloc[-1]))
-    # print('------------------------------------------------------------------')
-    # print('Итоговый процент прироста вложений: ' + str(np.round((df_test.cash.iloc[-1] 
-    #                                                              / df_test.cash.iloc[0] - 1)
-    #                                                             * 100, 2)) + ' %')
-    
+
     return [df, df_test, np.round(df_test.cash.iloc[-1],2)]
 
