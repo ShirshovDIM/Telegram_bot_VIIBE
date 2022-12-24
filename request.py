@@ -7,6 +7,7 @@ from alpha_vantage.timeseries import TimeSeries
 
 
 def get_historical_data(ticker, start = '2000-01-01', stop = datetime.now().strftime('%Y-%m-%d')):
+    
     try:
         start = datetime.strptime(start,'%Y-%m-%d')
         stop = datetime.strptime(stop,'%Y-%m-%d')
