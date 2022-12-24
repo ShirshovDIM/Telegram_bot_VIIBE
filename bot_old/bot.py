@@ -22,6 +22,7 @@ bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start', 'menu'])
 def start_handler(message):
+	
 	markup = types.ReplyKeyboardMarkup(resize_keyboard= True)
 	btn1 = types.KeyboardButton('Activate retro VIIBE')
 	btn2 = types.KeyboardButton('FAQ')
@@ -76,6 +77,7 @@ def reset_handler(message):
 	bot.register_next_step_handler(msg, captcha_reset)
 
 def captcha_reset(message):
+	
 	chat_id = message.chat.id
 	user = user_dict[chat_id]
 
@@ -130,6 +132,7 @@ bot.load_next_step_handlers()
 
 @bot.message_handler(func= lambda ms: True if ms.text in ['Activate retro VIIBE','/menu_retro'] else False)
 def menu_responder_retro(message):
+	
 	markup = types.InlineKeyboardMarkup()
 	btn1 = types.InlineKeyboardButton("Show virtual balance", callback_data = 'vb')
 	btn2 = types.InlineKeyboardButton("Run simulation", callback_data = 'run_sim')
@@ -139,6 +142,7 @@ def menu_responder_retro(message):
 
 @bot.message_handler(func= lambda ms: True if ms.text in ['Activate live VIIBE','/menu_live'] else False)
 def menu_responder_live(message):
+	
 	markup = types.InlineKeyboardMarkup()
 	btn1 = types.InlineKeyboardButton("Show virtual balance", callback_data = 'vb')
 	btn2 = types.InlineKeyboardButton("Buy", callback_data = 'buy_live')
@@ -150,6 +154,7 @@ def menu_responder_live(message):
 
 @bot.message_handler(func= lambda ms: True if ms.text.lower() in ['faq','/help'] else False)
 def help_responder(message):
+	
 	bot.send_message(message.chat.id, f'''My creator is very lazy, so I was said to support only these commans or messages:\n\n1. /start or /menu - to go to my main menu\n
 	2. /menu_retro or "Activate retro VIIBE" - to run my trade strategy based on previous data of american stock market and your PRE-specified parameters (make sure you passed them to me)\n
 	3. /menu_live of "Activate live VIIBE" - to test your own invest strategy in american stock market. I will provide you with (almost) real-time financial data of ASM, so you do not have to search for it by yourself\n\n
@@ -314,6 +319,7 @@ def query_handler_main_menu(call):
 	con.close()
 
 def captcha_handler_pfl(message):
+	
 	chat_id = message.chat.id
 	user = user_dict[chat_id]
 
