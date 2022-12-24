@@ -4,10 +4,12 @@ import plotly.graph_objects as go
 from datetime import datetime
 
 def write_plots(fig):
+    
     fig[0].write_image('plot.png', width=1024, scale = 2)
     fig[1].write_image('position.png', width=1024, scale = 2)
 
 def graph(df, df_test, short_window = 30, long_window = 90):
+    
     if short_window > long_window: 
         
         t = short_window
