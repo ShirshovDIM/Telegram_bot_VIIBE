@@ -27,6 +27,7 @@ bot = AsyncTeleBot(token, state_storage = StateMemoryStorage())
 
 @bot.message_handler(commands=['start', 'menu'])
 async def start_handler(message):
+	
 	markup = types.ReplyKeyboardMarkup(resize_keyboard= True)
 	btn1 = types.KeyboardButton('Activate retro VIIBE')
 	btn2 = types.KeyboardButton('FAQ')
@@ -86,11 +87,13 @@ async def reset_handler(message):
 
 @bot.message_handler(state="*", commands='cancel')
 async def cancel_state(message):
+	
     await bot.send_message(message.chat.id, "Captcha aborted")
     await bot.delete_state(message.from_user.id, message.chat.id)
 
 @bot.message_handler(state = User_info.captcha_user)
 async def captcha_handler(message):
+	
 	chat_id = message.chat.id
 	user_captcha = message.text
 
@@ -209,6 +212,7 @@ bot.add_custom_filter(asyncio_filters.StateFilter(bot))
 
 @bot.message_handler(func= lambda ms: True if ms.text in ['Activate retro VIIBE','/menu_retro'] else False)
 async def menu_responder_retro(message):
+	
 	markup = types.InlineKeyboardMarkup()
 	btn1 = types.InlineKeyboardButton("Show virtual balance", callback_data = 'vb')
 	btn2 = types.InlineKeyboardButton("Run simulation", callback_data = 'run_sim')
@@ -218,6 +222,7 @@ async def menu_responder_retro(message):
 
 @bot.message_handler(func= lambda ms: True if ms.text in ['Activate live VIIBE','/menu_live'] else False)
 async def menu_responder_live(message):
+	
 	markup = types.InlineKeyboardMarkup()
 	btn1 = types.InlineKeyboardButton("Show virtual balance", callback_data = 'vb')
 	btn2 = types.InlineKeyboardButton("Buy", callback_data = 'buy_live')
@@ -229,6 +234,7 @@ async def menu_responder_live(message):
 
 @bot.message_handler(func= lambda ms: True if ms.text.lower() in ['faq','/help'] else False)
 async def help_responder(message):
+	
 	await bot.send_message(message.chat.id, f'''My creator is very lazy, so I was said to support only these commans or messages:\n\n1. /start or /menu - to go to my main menu\n
 	2. /menu_retro or "Activate retro VIIBE" - to run my trade strategy based on previous data of american stock market and your PRE-specified parameters (make sure you passed them to me)\n
 	3. /menu_live of "Activate live VIIBE" - to test your own invest strategy in american stock market. I will provide you with (almost) real-time financial data of ASM, so you do not have to search for it by yourself\n
